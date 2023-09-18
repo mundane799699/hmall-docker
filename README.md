@@ -38,7 +38,7 @@ systemctl disable firewalld.service
 systemctl start firewalld.service
 ```
 
-### docker run
+### docker run方式
 
 #### 第1步，准备文件
 
@@ -90,7 +90,7 @@ docker run -d \
 nginx
 ```
 
-### docker compose
+### docker compose方式
 
 在当前目录下准备好docker-compose.yml、Dockerfile、hm-service.jar、mysql目录、nginx目录
 
