@@ -42,7 +42,7 @@ systemctl start firewalld.service
 
 #### 第1步，准备文件
 
-在当前目录下准备好docker-compose.yml、Dockerfile、hm-service.jar、mysql目录、nginx目录
+在当前目录下准备好Dockerfile、hm-service.jar、mysql目录、nginx目录
 
 #### 第2步，创建网络
 
@@ -57,15 +57,6 @@ docker build -t hmall .
 ```
 
 #### 第4步，创建容器并加入网络
-
-```
-docker run -d \
---name hmall \
--p 8080:8080 \
---network hmall \
-hmall
-```
-
 ```
 docker run -d \
 --name mysql \
@@ -78,6 +69,13 @@ docker run -d \
 --network hmall \
 mysql
 ```
+```
+docker run -d \
+--name hmall \
+-p 8080:8080 \
+--network hmall \
+hmall
+```
 
 ```
 docker run -d \
@@ -86,7 +84,7 @@ docker run -d \
 -p 18081:18081 \
 -v /root/nginx/html:/etc/nginx/html \
 -v /root/nginx/nginx.conf:/etc/nginx/nginx.conf \
---network hmall \:
+--network hmall \
 nginx
 ```
 
